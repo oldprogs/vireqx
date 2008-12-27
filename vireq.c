@@ -48,7 +48,7 @@ struct
 
 FILE *pfade;
 char pfadfile[MAX_FILENAMELEN];
-#define VERSION "0.10.1(vk)"
+#define VERSION "0.10.5(vk)"
 FILE *pwfile;
 char pwfilename[MAX_FILENAMELEN];
 
@@ -582,7 +582,7 @@ loop:
             fwrite(dummy_string,(size_t) anz, (size_t) 1, pkt);
     }
     if (!point_from)
-        sprintf(dummy_string,"\x0d--- VIREQ/Linux V%s \x0d * Origin: (c) 1998-2001 by Volker Imre, Fidonet 2:246/2098 (%d:%d/%d)\x0d",VERSION,
+        sprintf(dummy_string,"\x0d--- VIREQ/Linux V%s by Volker Imre \x0d * Origin: - (%d:%d/%d)\x0d",VERSION,
         zone_from, net_from, node_from);
     else
         sprintf(dummy_string,"\x0d--- VIREQ/Linux V%s\x0d * Origin: (c) 1998-2001 by Volker Imre, Fidonet 2:246/2098 (%d:%d/%d.%d)\x0d",VERSION,
@@ -973,7 +973,7 @@ void main(int argc, char *argv[])
                 p=strchr(eingabe,0x0a);
                 if (p)
                    *p=0x00;
-                strlwr(eingabe);
+                // strlwr(eingabe);
                 p=strstr(eingabe," -newest");
                 if (p)
                 {
@@ -1450,7 +1450,7 @@ void main(int argc, char *argv[])
 	    write_temp(dummy_string);
         }
     }
-    sprintf(dummy_string,"\x0d\x0dYours sincerely,\nVIREQ/Linux V%s\x0d(c) 1998-2001 by Volker Imre, 2:246/2098\x0d\x0d",VERSION);
+    sprintf(dummy_string,"\x0d\x0dYours sincerely,\x0dSysOp\x0d\x0d");
     write_temp(dummy_string);
     sprintf(pkt_pfad,"%s%s",drive,path);
 

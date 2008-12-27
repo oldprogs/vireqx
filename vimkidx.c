@@ -129,7 +129,7 @@ int find_filesbbs(char *pfad)
 		#else
 		 strlwr(direntp->d_name);
 		#endif
-		if (strstr("files.bbs",direntp->d_name))
+		if (strstr("files.bbx",direntp->d_name))
 		{
 			findclose();
 			return(0);
@@ -563,7 +563,7 @@ int main(int argc, char *argv[])
         }
         p=strchr(eingabe,0x20);
         if (p) *p=0x00;
-        sprintf(filesbbs,"%s/files.bbs",eingabe);
+        sprintf(filesbbs,"%s/files.bbx",eingabe);
         fbbs=fopen(filesbbs,"rt");
         if (!fbbs)
         {
@@ -684,7 +684,7 @@ int main(int argc, char *argv[])
         }
         p=strchr(eingabe,0x20);
         if (p) *p=0x00;
-        sprintf(filesbbs,"%s/files.bbs",eingabe);
+        sprintf(filesbbs,"%s/files.bbx",eingabe);
         fbbs=fopen(filesbbs,"rt");
         if (!fbbs)
         {
