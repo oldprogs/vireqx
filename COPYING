@@ -1,0 +1,72 @@
+From: 	  Volker@imre.dyndns.org
+Subject: 	Re: License for ViReq?
+Date: 	October 3, 2008 4:41:50 AM GMT-04:00
+To: 	  jame@rocasa.org
+Cc: 	  viktor@kafke.de
+Reply-To: 	  Volker@imre.dyndns.org
+
+Hello Robert,
+
+>>>     What is the License on the source?  Can find no mention of
+>>> that in any of the files...
+>>
+>> Volker is still a member of fidonet (2:246/2098), please ask him.  
+>> He's also reachable via eMail at Volker@imre.dyndns.org
+>>
+>> To my knowledge he has given ViReq to the public domain, as far as  
+>> you leave his name in the source code/dokumentation intact.
+
+>      Is that what it is?  Public domain?  Or GPL?   Because it's not  
+> mentioned in any of the files that I could find...
+
+You may do with the source code / program whatever you want, as long as the
+original author (me) is mentioned.
+
+
+>>> (I was thinking about packaging it for Debian/Ubuntu...)
+>>
+>> Good idea. I think he would agree to that - but please ask him  
+>> yourself.
+
+>     I do have an initial package that does build, but of course can't
+> distribute it without a license that says I can do so...
+
+Feel free to distribute and modify the program / source as you wish.
+
+-- 
+Best regards,
+Volker                          
+
+=====================================================================================
+From:   jame@rocasa.org
+Subject: License for ViReq?
+Date: October 2, 2008 6:23:56 PM GMT-04:00
+To:   Volker@imre.dyndns.org
+
+On Wed, 01 Oct 2008 17:25:46 -0400, Viktor Kafke wrote in the BinkD echo:
+
+>>     What is the License on the source?  Can find no mention of that in
+>>     any of the files...
+>
+> Volker is still a member of fidonet (2:246/2098), please ask him. He's
+> also reachable via eMail at Volker@imre.dyndns.org
+>
+> To my knowledge he has given ViReq to the public domain, as far as you
+> leave his name in the source code/dokumentation intact.
+
+    Is that what it is?  Public domain?  Or GPL?   Because it's not mentioned
+in any of the files that I could find...
+    
+    
+>> (I was thinking about packaging it for Debian/Ubuntu...)
+>
+> Good idea. I think he would agree to that - but please ask him yourself.
+    
+       I do have an initial package that does build, but of course can't
+distribute it without a license that says I can do so...
+       
+       
+       
+Robert James Clay
+jame@rocasa.org
+       

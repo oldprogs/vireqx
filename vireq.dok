@@ -1,0 +1,150 @@
+
+                VIREQ/x V0.10
+                (c) 1998-2001 by Volker Imre
+                Fidonet 2:246/2098
+                Email   Volker@imre.dyndns.org
+
+
+
+
+Kurzbeschreibung:
+-----------------
+
+
+        VIREQ/x ist ein Filerequest-Prozessor, der sich nach dem in FSC-0086
+        definierten SRIF-Standard richtet.
+
+        VIREQ/x ist einzig und allein auf Geschwindigkeit ausgelegt. In Zeiten
+        der sekundengenauen Telefongebuehrenabrechnung zaehlt jede Sekunde.
+        Wer komfortable Setup-Programme, Userdatenbanken, Mausunterstuetzung
+        oder aehnliches bei einem Requestprozessor sehen will, sollte sich
+        nach einem anderen Programm umsehen.
+
+        Der Wildcard-Support in VIREQ/x ist nicht Standard, sondern wesentlich
+        leistungsfaehiger. Als Wildcards gelten '*' und '?'.
+        Beide, auch der '*', koennen in Requestnamen mehrfach vorkommen.
+
+        Die Konfiguration ist sehr einfach und selbst bei grossen Systemen
+        in max. 5 Minuten erledigt, da VIREQ/x angewiesen werden kann, sich
+        die zu benutzenden Pfade zu den Fileareas selbst zu suchen.
+
+        Es wird kein BBS-Programm benoetigt, ebensowenig FILES.BBS-Dateien.
+
+Installation:
+-------------
+
+	1. Den kompletten Inhalt des Archivs nach /usr/bin/vireq/ entpacken.
+	2. Vireq.cfg und vireq.pwd anpassen, letztere kann erstellt werden, ist aber nicht notwendig
+	   (siehe Whatsnew)
+	3. vimkidx starten
+	4. den Reqproz wie unten beschrieben in binkd.cfg eintragen
+	5. fertig.
+
+	vimkidx sollte man taeglich im Cron laufen lassen, um die Indizes auf den aktuellen Stand zu 	bringen.
+
+Die Programme:
+--------------
+
+
+        VIMKIDX   -> Liest die VIREQ.CFG und erstellt die notwendigen Index-
+                     Files (VIFILE<x>.IDX und VIPATH.IDX)
+
+        VIREQ.EXE -> Der Reqproz. Einzubinden in binkd.cfg als
+
+			exec "/usr/bin/vireq/vireq *S" *.req
+ 
+
+Das Config-File VIREQ.CFG:
+--------------------------
+
+  Im Einzelnen:
+
+        Der Name des zu schreibenden Logfiles, %u wird dabei durch den Inhalt
+        der TASK-Umgebungsvariablen ersetzt.
+
+         logfile          vireq%u.log
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        Der Name der Datei, die die Namen der requesteten Files incl. Pfad
+        enthaelt. Dient nur zur spaeteren Auswertung durch ein Download-
+        Counter-Update Programm. Auch hier wird %u durch den Inhalt der TASK-
+        Umgebungsvariablen ersetzt.
+
+         dlc-log          dlc%u.log
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        Der Systemname, der in der Request-Response benutzt werden soll.
+
+         systemname       Charleston BBS
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        Die eigene Adresse wird hier angegeben. Sie dient als Absender-Adresse
+        fuer die Request-Response.
+
+         aka              2:246/2098
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        Das temporaer-Verzeichnis fuer CD-Wechsler (s.u. unter "-LOCAL").
+
+         cdtemp           /tmp/
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        Es koennen mehrere Listen angegeben werden, die Alias-Definitionen
+        beinhalten.
+
+         aliaslist        /mnt/hdc5/system/im/aliases.lst
+
+           Innerhalb einer Liste kann fuer einzelne Aliase der Parameter
+           "-newest" angegeben werden. Beispiel:
+
+                NODEDIFF Q:\DIFFS\NODEDIFF.A* -NEWEST
+
+           Es wird dann nur das neueste File verschickt. Wird -NEWEST nicht
+           angegeben, werden _ALLE_ passenden Files gesendet.
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        Hier koennen direkt Pfade angegeben werden, die in den Index auf-
+        genommen werden sollen.
+
+        -S bedeutet dabei: Nimm die Unterverzeichnisse mit auf, in denen
+           Files.BBS vorhanden sind.
+        -T bedeutet dabei: Nimm alle Unterverzeichnisse in den Index auf.
+
+         include-path     /filebase1 -s
+         include-path     /filebase2 -t
+
+        Weitere Parameter fuer "include-file" und "include-path":
+
+                -CD    -> Wird nur in den Index aufgenommen, wenn
+                          VIMKIDX mit Parameter -FORCE aufgerufen wird.
+                          Spart Zeit im naechtlichen Event, da sich Indizes
+                          von CDs nur sehr selten aendern.
+
+                -LOCAL -> Fuer die Leute mit CD-Wechslern. Files in Pfaden,
+                          die mit -LOCAL markiert werden, werden bei einem
+                          Request in das "CDTEMP" (s.o.) Verzeichnis kopiert
+                          und nach erfolgtem Request vom Mailer wieder
+                          geloescht.
+                          -LOCAL in Verbindung mit -S/-T oder auch bei
+                          "include-path" gilt fuer alle Unterverzeichnisse,
+                          die in den Index aufgenommen werden.
+
+Das Passwort-File VIREQ.PWD:
+----------------------------
+
+                siehe "Whatsnew"-Datei
+
+
+Todo-List:
+----------
+
+        Ich bitte um Vorschlaege...
+
+        Support von Limits oder Unterscheidung Protected/Unprotected bzw.
+        Listed/Unlisted sind bisher nicht geplant. Wer braucht sowas schon.
+
