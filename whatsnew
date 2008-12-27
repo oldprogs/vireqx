@@ -1,6 +1,25 @@
 Beta History
 ============
 
+New in 0.10.2(vk) (20.03.2004):
+------------------------------
+
+        - Added routines to check os-environment while compiling - to make
+          (vk)-changes only affect to unix/linux-binaries. Behavior of
+          Win- and OS/2-versions of vireq/vimkindex  are unchanged.
+			    
+New in 0.10.1(vk) (15.03.2004):
+------------------------------
+
+        - Vimkidx/Linux was unable to create Index-Files for Directories and
+	  Files with a beginning uppercase-character. Fixed
+	  
+	- Vireq/Linux was unable to access Index-Files with a beginning
+	  uppercase-character. Fixed
+	  
+	- Vireq/Linux was converting Filerequests completely to lowercase -
+	  so it was unable to find files with uppercase-characters
+
 New in 0.10 (25.09.2001):
 -------------------------
 

@@ -1,6 +1,7 @@
-VIREQ/X V0.10
+VIREQ/X V0.10.2(vk)
 Filerequestprozessor fuer Linux
 -Arbeitet mit SRIF gemaess FSC-0086.001
 -Benoetigt keine Filebase, auch keine
  FILES.BBS
     (c) 1998-2001 by Volker Imre
+        Kleine Patches by Viktor Kafke

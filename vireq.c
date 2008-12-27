@@ -13,6 +13,7 @@
 #define _MAX_EXT 12
 #define MAX_FILENAMELEN _MAX_DRIVE + _MAX_DIR + _MAX_FNAME + _MAX_EXT
 #include <dirent.h>
+#include "vireq.h"
 
 DIR *dirp;
 struct dirent *direntp;
@@ -47,7 +48,7 @@ struct
 
 FILE *pfade;
 char pfadfile[MAX_FILENAMELEN];
-#define VERSION "0.10"
+#define VERSION "0.10.1(vk)"
 FILE *pwfile;
 char pwfilename[MAX_FILENAMELEN];
 
@@ -731,7 +732,7 @@ void main(int argc, char *argv[])
         fgets(eingabe,(int)255,config);
         if (feof(config))
            break;
-/*        strlwr(eingabe);*/
+/*	  strlwr(eingabe);*/
         p=strchr(eingabe,0x0d);
         if (p) *p=0x00;
         p=strchr(eingabe,0x0a);
@@ -928,7 +929,11 @@ void main(int argc, char *argv[])
         p=strchr(eingabe,0x20);   // Leerzeichen am Ende filtern
         if (p)
            *p=0x00;
-        strlwr(eingabe);
+        #ifdef UNIX
+	    ;
+	#else
+	    strlwr(eingabe);
+	#endif
         if (strchr(eingabe,'*') || strchr(eingabe,'?'))
         {
             found[max].area=-3;         // Wildcard, area = -3
@@ -1043,7 +1048,12 @@ void main(int argc, char *argv[])
             i++;
             continue;
         }
-        c=tolower(found[i++].name[0]);
+        #ifdef UNIX
+	 ;
+	#else
+	 c=tolower(found[i++].name[0]);
+	#endif
+        c=(found[i++].name[0]);
         if (!idx[c].open==1) 
         {
             sprintf(idx[c].name,"%svifile%c.idx",path,c);
@@ -1078,7 +1088,12 @@ void main(int argc, char *argv[])
                 i++;
                 continue;
             }
-            c=tolower(found[i].name[0]);
+            #ifdef UNIX
+	     ;
+	    #else
+	     c=tolower(found[i].name[0]);
+	    #endif
+            c=(found[i].name[0]);
             if (!idx[c].open)
             {
                 i++;

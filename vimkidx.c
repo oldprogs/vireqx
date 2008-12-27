@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+#include "vireq.h"
 DIR *dirp;
 struct dirent *direntp;
 
@@ -70,7 +71,11 @@ void findfile(char *dir, char *name)
 {
           char *p, *q;
           char entry[255];
-	  strlwr(dir);
+	  #ifdef UNIX
+	   ;
+	  #else
+	   strlwr(dir);
+	  #endif
           dirp = opendir( dir );
           if( dirp == NULL ) {
 	    printf(">>%s<<  \n",dir);
@@ -119,7 +124,11 @@ int find_filesbbs(char *pfad)
         }
         while(direntp)
 	{
-		strlwr(direntp->d_name);
+		#ifdef UNIX
+		 ;
+		#else
+		 strlwr(direntp->d_name);
+		#endif
 		if (strstr("files.bbs",direntp->d_name))
 		{
 			findclose();
@@ -235,13 +244,17 @@ int main(int argc, char *argv[])
 
     for (param=0;param<argc ; param++)
     {
-        strlwr(argv[param]);
+        #ifdef UNIX
+	 ;
+	#else
+	 strlwr(argv[param]);
+	#endif
         if (!strncmp("-force",argv[param],strlen("-force")))
             force=1;
     }
 
-    _outtext("VIMKIDX/2 V0.07");
-    _outtext("Creates all needed indexfiles for VIREQ/2");
+    _outtext("VIMKIDX/Linux V0.07.2(vk)");
+    _outtext("Creates all needed indexfiles for VIREQ/Linux");
     _outtext("Use -force to recreate the cdrom-indices");
 
 
@@ -282,7 +295,11 @@ int main(int argc, char *argv[])
         fgets(eingabe,(int)255,config);
         if (feof(config))
            break;
-        strlwr(eingabe);
+        #ifdef UNIX
+	 ;
+	#else
+	    strlwr(eingabe);
+	#endif
         p=strchr(eingabe,0x0d);
         if (p) *p=0x00;
         p=strchr(eingabe,0x0a);
@@ -336,7 +353,11 @@ int main(int argc, char *argv[])
                 if (p) *p=0x00;
                 if (!strlen(eingabe))
                     continue;
-                strlwr(eingabe);
+                #ifdef UNIX
+		    ;
+		#else
+		    strlwr(eingabe);
+		#endif
                 if (eingabe[strlen(eingabe)-1]==0x5c)
                     eingabe[strlen(eingabe)-1]=0x00;
                 if (mmcopy)
@@ -352,6 +373,7 @@ int main(int argc, char *argv[])
                     fputs("\n",pfade);
                 }
                 _outtext(eingabe);
+                _outtext("\n\n");
             }
             fclose(tmp);
             continue;
@@ -366,7 +388,21 @@ int main(int argc, char *argv[])
                 *p++=0x20;
                 mmsub=1;
             }
+            p=strstr(eingabe," -S");
+            if (p) {
+                *p++=0x20;
+                *p++=0x20;
+                *p++=0x20;
+                mmsub=1;
+            }
             p=strstr(eingabe," -t");
+            if (p) {
+                *p++=0x20;
+                *p++=0x20;
+                *p++=0x20;
+                mmsub=2;
+            }
+            p=strstr(eingabe," -T");
             if (p) {
                 *p++=0x20;
                 *p++=0x20;
@@ -381,7 +417,26 @@ int main(int argc, char *argv[])
                 *p++=0x20;
                 mmcd=1;
             }
+            p=strstr(eingabe," -CD");
+            if (p) {
+                *p++=0x20;
+                *p++=0x20;
+                *p++=0x20;
+                *p++=0x20;
+                mmcd=1;
+            }
             p=strstr(eingabe," -local");
+            if (p) {
+                *p++=0x20;
+                *p++=0x20;
+                *p++=0x20;
+                *p++=0x20;
+                *p++=0x20;
+                *p++=0x20;
+                *p++=0x20;
+                mmcopy=1;
+            }
+            p=strstr(eingabe," -LOCAL");
             if (p) {
                 *p++=0x20;
                 *p++=0x20;
@@ -420,6 +475,7 @@ int main(int argc, char *argv[])
                     fputs("\n",pfade);
                 }
                 _outtext(p);
+                _outtext("\n\n");
                 continue;
             }
 
@@ -436,7 +492,11 @@ int main(int argc, char *argv[])
                 if (p) *p=0x00;
                 p=strchr(eingabe,0x0a);
                 if (p) *p=0x00;
-                strlwr(eingabe);
+                #ifdef UNIX
+		    ;
+		#else
+		    strlwr(eingabe);
+		#endif
                 if (eingabe[strlen(eingabe)-1]==0x5c)
                     eingabe[strlen(eingabe)-1]=0x00;
 		status=find_filesbbs(eingabe);
@@ -521,7 +581,11 @@ int main(int argc, char *argv[])
         	        }
 
                     p=direntp->d_name;
-                    strlwr(p);
+                    #ifdef UNIX
+			;
+		    #else
+			strlwr(p);
+		    #endif
                     c=*p;
                     if (!(c=='.'))
                     {
@@ -555,7 +619,11 @@ int main(int argc, char *argv[])
             if (c=='+'  || c=='*' || c=='\\' || c==0x00 || c==':')
                 continue;
 	    c=tolower(c);
-	    strlwr(eingabe);
+	    #ifdef UNIX
+		;
+            #else
+		strlwr(eingabe);
+	    #endif
             if (!idx[c].open)
                 oeffne_idx(c);
             if (!idx[c].open )
@@ -626,7 +694,11 @@ int main(int argc, char *argv[])
                 while(direntp)
                 {
                     p=direntp->d_name;
-                    strlwr(p);
+                    #ifdef UNIX
+			;
+		    #else
+		    strlwr(p);
+		    #endif
                     c=*p;
                     if (!(c=='.'))
                     {
@@ -637,6 +709,7 @@ int main(int argc, char *argv[])
                             fprintf(idx_c[c].f,"%s %lu\n",p,zaehler-1);
                         }
                         _outtext(p);
+                        _outtext("\n\n");
                     }
                     findnext();
                 }
@@ -658,7 +731,11 @@ int main(int argc, char *argv[])
                 continue;
             if (c=='+'  || c=='*' || c=='\\' || c==0x00 || c==':')
                 continue;
+	    #ifdef UNIX
+		;
+	    #else
 	    strlwr(eingabe);
+	    #endif
 	    c=tolower(c);
             if (!idx_c[c].open)
                 oeffne_idx_cdrom(c);
@@ -669,6 +746,7 @@ int main(int argc, char *argv[])
                *p=0x00;
             fprintf(idx_c[c].f,"%s %lu\n",eingabe,zaehler-1);
             _outtext(eingabe);
+            _outtext("\n\n");
         }
         fclose(fbbs);
     }
