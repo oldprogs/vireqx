@@ -1,0 +1,164 @@
+
+                VIREQ/x V0.10
+                (c) 1998-2001 by Volker Imre
+                Fidonet 2:246/2098
+                Email   Volker@imre.dyndns.org
+
+		Poorly translated from vireq.dok and upgraded for (vk)
+		patches by Viktor Kafke
+		Fidonet 2:2437/33
+		Email	vk@fido.de
+		
+!		Some important changes in (vk) versions are marked
+!               with a leading "!".
+
+
+Short description:
+-----------------
+
+	VIREQ/x is a fidonet file request processor according to the
+	FSC-0086 SRIF standard.
+
+	VIREQ/x is designed simply to be fast. Anyone who is looking for
+	easy setup programs, user data bases or stuff like mouse support
+	in a file request processor better should look around for another
+	software.
+
+	VIREQ/x supports the wilcards '*' and '?' in file name entries.
+	The '*' wildcard may be used multiple times in single request
+	name entries.
+
+	The configuration of this software is very simple and should be done
+	within 5 minutes - even on larger sites. VIREQ/x can be instructed to
+	search the complete paths to file areas recursively itself.
+
+	There is no need for a BBS program or for FILES.BBS files to use
+	VIREQ/x.
+
+How to install:
+--------------
+
+	1. Create a new directory /usr/bin/vireq/
+	2. Extract the whole VIREQ/x archive to this new directory.
+	3. Make sure that the user which runs binkd and vireq do have write
+	   access to this directory and the files in it. E.g. via:
+	        chown -R news.news /usr/bin/vireq
+	4. Change the sample vireq.cfg and vireq.pwd to fit your system
+	   requirements. The vireq.pwd file is not mandatory (see whatsnew).
+	5. Run vimkidx
+	6. Change your binkd.cfg as described below.
+	7. Done.
+
+	The vimkidx program should run periodically via cron to keep your
+	indexes	up to date.
+
+The executables:
+---------------
+
+        vimkidx   -> Reads vireq.cfg and builds the needed index files
+                     for your system (vifile<x>.idx und vipath.idx)
+
+        vireq     -> The request processor program to be called by the binkd
+		     mailer for handling file requests. Change your binkd.cfg
+		     as follows
+
+			exec "/usr/bin/vireq/vireq *S" *.req
+
+The main configuration file vireq.cfg:
+-------------------------------------
+
+  In detail:
+
+	Defines the log file for VIREQ/x. VIREQ/x will replace %u with the
+	content of the TASK environment variable.
+
+         logfile          vireq%u.log
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	Name for the logfile for all requested files from your system
+	including the whole path. This file is for later processing by a
+	download counter program. As before, %u is replaced by TASK
+	environment variable.
+
+         dlc-log          dlc%u.log
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	Your system name to be used in request responses.
+
+         systemname       Charleston BBS
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	Your fidonet address to be used as "from" address is request responses.
+
+         aka              2:246/2098
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	The path to use for temporary files when files from an optional
+	CD charger are requested (see "-local" below).
+
+         cdtemp           /tmp/
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	The path to your alias definitions. Can be used multiple times.
+
+         aliaslist        /mnt/hdc5/system/im/aliases.lst
+
+	   In this file you can use the "newest" parameter, which will send
+	   the most recent file only.
+
+                NODEDIFF /var/spool/fnet/files/nodediff/NODEDIFF.A* [-newest]
+
+	   If -newest is not used, _ALL_ matching files will be sent.
+	   
+!	Important change since version 0.10.5(vk):
+!	Alias names are case sensitive now! So "NODEDIFF" and "nodediff"
+!	are different aliases (magics).
+
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	Here you can list all path names to build the index for VIREQ/x.
+	This command can be used multiple times.
+
+	 include-file	  /path/to/filelist/to/include
+
+         include-path     /filebase1 [-s|-t]
+
+	-s means: Include only subdirectories including a FILES.BBS file.
+
+        -t means: Include all subdirectories.
+
+	Further options for "include-file" and "include-path":
+
+		-cd    -> Include this only if vimkidx is run with the
+			  "-force" switch. This saves time, since indices
+			  for CDs areas are rarely changed.
+
+		-local -> For those of you using a CD charger.
+			  File in those directories will be copied in the
+			  "cdtemp" directory during a request process and
+			  will be deleted by the mailer after transfer.
+			  
+			  When "-local" is used in conjuction with "-s"/"-t"
+			  or in a "include-path" entry, it is valid for all
+			  subdirectires.
+
+
+The password file vireq.pwd:
+----------------------------
+
+        See "whatsnew" file.
+
+
+Todo-List:
+----------
+
+        Send me your suggestions, please...
+
+	Support for request limits or different handling of
+	protected/unprotected sessions and listed/unlisted sessions is not
+	planned. Who really needs that.
