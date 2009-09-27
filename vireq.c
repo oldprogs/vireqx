@@ -48,7 +48,7 @@ struct
 
 FILE *pfade;
 char pfadfile[MAX_FILENAMELEN];
-#define VERSION "0.10.5(vk)"
+#define VERSION "0.11"
 FILE *pwfile;
 char pwfilename[MAX_FILENAMELEN];
 

@@ -1,45 +1,45 @@
-Beta History
-============
+VIREQ/x History
+===============
 
-New in 0.11.0(rjc) (01.10.2009):
-------------------------------
+New in 0.11 (26.09.2009):
+-------------------------
 
-        - Add the English translation of vireq.dok by Viktor Kafke as the
-          file README
-        - Correct gcc warning:  return type of 'main' is not 'int'.
-          Received the following warning when attempting to compile:
-          vireq.c:687: warning: return type of 'main' is not 'int'
-          Changed from the void main() format to int main() format.
+    - Add the English translation of vireq.dok by Viktor Kafke as the
+      file README
+    - Correct gcc warning:  return type of 'main' is not 'int'.
+      Received the following warning when attempting to compile:
+      vireq.c:687: warning: return type of 'main' is not 'int'
+      Changed from the void main() format to int main() format.
 
 New in 0.10.5(vk) (01.10.2008):
 ------------------------------
 
-        - Aliase-Names (MAGICs) are now Case-Sensitive
-          files.bbs are ignored
+    - Aliase-Names (MAGICs) are now Case-Sensitive
+      files.bbs are ignored
 
 New in 0.10.2(vk) (20.03.2004):
 ------------------------------
 
-        - Added routines to check os-environment while compiling - to make
-          (vk)-changes only affect to unix/linux-binaries. Behavior of
-          Win- and OS/2-versions of vireq/vimkindex  are unchanged.
-			    
+    - Added routines to check os-environment while compiling - to make
+      (vk)-changes only affect to unix/linux-binaries. Behavior of
+      Win- and OS/2-versions of vireq/vimkindex  are unchanged.
+
 New in 0.10.1(vk) (15.03.2004):
 ------------------------------
 
-        - Vimkidx/Linux was unable to create Index-Files for Directories and
-	  Files with a beginning uppercase-character. Fixed
-	  
-	- Vireq/Linux was unable to access Index-Files with a beginning
-	  uppercase-character. Fixed
-	  
-	- Vireq/Linux was converting Filerequests completely to lowercase -
-	  so it was unable to find files with uppercase-characters
+    - Vimkidx/Linux was unable to create Index-Files for Directories and
+      Files with a beginning uppercase-character. Fixed
+
+    - Vireq/Linux was unable to access Index-Files with a beginning
+      uppercase-character. Fixed
+
+    - Vireq/Linux was converting Filerequests completely to lowercase -
+      so it was unable to find files with uppercase-characters
 
 New in 0.10 (25.09.2001):
 -------------------------
 
-        - additional configuration file:
+    - additional configuration file:
 
                              VIREQ.PWD
 
@@ -66,12 +66,12 @@ New in 0.10 (25.09.2001):
                         /mnt/dir2  mypw2
 
                         -> /mnt/dir1, mnt/dir2 and all subdirectories are 
-			   password protected
+               password protected
 
 New in 0.09:
 ------------
 
-        - added Service-Requests
+    - added Service-Requests
 
           How to setup:
                 - Add the name of the "file" to your alias-list
@@ -98,22 +98,22 @@ New in 0.09:
                 to be created by the program executed as "Service" in the
                 vireq-homedirectory.
 
-        - Added special logfiles for download-counter (dlc%TASK%.LOG)
+    - Added special logfiles for download-counter (dlc%TASK%.LOG)
 
 New in 0.08:
 ------------
 
-        - VIMKIDX now checks for existance of files listed in FILES.BBS
+    - VIMKIDX now checks for existance of files listed in FILES.BBS
 
-        - PB2VI now only creates "PFADE.DAT" if Proboard's FILECFG.PRO
-          has been found.
+    - PB2VI now only creates "PFADE.DAT" if Proboard's FILECFG.PRO
+      has been found.
 
-        - When no file was found for wildcarded requests, the response mail
-          did neither show "Files not found:" nor list the files it searched
-          for. Fixed.
+    - When no file was found for wildcarded requests, the response mail
+      did neither show "Files not found:" nor list the files it searched
+      for. Fixed.
 
-        - When an alias contains wildcards, Vireq now sends all matching files
-          to the remote. Example:
+    - When an alias contains wildcards, Vireq now sends all matching files
+      to the remote. Example:
 
                 the aliaslist contains:
 
@@ -133,7 +133,7 @@ New in 0.08:
                  VIR        I:\FILENETS\CHARLES\cd_snd2.rar      (Alias)
                  VIR        I:\FILENETS\CHARLES\cd_snd3.rar      (Alias)
 
-        - New switch "-newest" for use within aliaslists.
+    - New switch "-newest" for use within aliaslists.
 
           Does almost the same as above, but the aliaslist contains
 
@@ -146,57 +146,57 @@ New in 0.08:
 New in 0.07:
 ------------
 
-        - PB2VI now ignores empty fileareas
+    - PB2VI now ignores empty fileareas
 
-        - VIMKIDX ignores empty lines in "include-path"-files
+    - VIMKIDX ignores empty lines in "include-path"-files
 
-        - Sys1808 occured when there where no CD-areas
+    - Sys1808 occured when there where no CD-areas
 
 
 New in 0.06:
 ------------
 
-        - fixed two ugly bugs in VIMKIDX
+    - fixed two ugly bugs in VIMKIDX
 
-        - fixed a bug concerning wildcarded requests
+    - fixed a bug concerning wildcarded requests
 
-        - keyword "systemname" in VIREQ.CFG:
-          Define the name of your system.
+    - keyword "systemname" in VIREQ.CFG:
+      Define the name of your system.
 
-        - keyword "cdtemp" in VIREQ.CFG:
-          When paths/include-files are defined with "-local", requested
-          files will be copied into the cdtemp-directory (and deleted
-          by the mailer after the request).
-          Should only be used with cdrom-changers since any cdrom is fast
-          enough to honour requests.
+    - keyword "cdtemp" in VIREQ.CFG:
+      When paths/include-files are defined with "-local", requested
+      files will be copied into the cdtemp-directory (and deleted
+      by the mailer after the request).
+      Should only be used with cdrom-changers since any cdrom is fast
+      enough to honour requests.
 
-        - support for CD-Areas. When "-cd" is specified behind a path/include-
-          file, its index is only updated when VIMKIDX is called with
-          parameter "-force". The index-files for the CD-Areas are called
-          *.IDC instead of *.IDX.
+    - support for CD-Areas. When "-cd" is specified behind a path/include-
+      file, its index is only updated when VIMKIDX is called with
+      parameter "-force". The index-files for the CD-Areas are called
+      *.IDC instead of *.IDX.
 
 
 New in 0.05:
 ------------
 
-        - keyword "aka" in VIREQ.CFG:
-          Specify the aka the request-response will originate from.
+    - keyword "aka" in VIREQ.CFG:
+      Specify the aka the request-response will originate from.
 
-        - keyword "dlc-log" in VIREQ.CFG:
-          The name of the logfile to be used by vidlc.exe (the program
-          to update your download-counters, not finished yet).
+    - keyword "dlc-log" in VIREQ.CFG:
+      The name of the logfile to be used by vidlc.exe (the program
+      to update your download-counters, not finished yet).
 
-        - support of environment-settings in all path- and file-definitions
-          (the new $[...] as well as the old %...%-method) except of
-          "include-path" defined with -s or -t
+    - support of environment-settings in all path- and file-definitions
+      (the new $[...] as well as the old %...%-method) except of
+      "include-path" defined with -s or -t
 
 New in 0.04:
 ------------
 
-        - added missing TOPT/FMPT/INTL-Kludges in Netmail-Reply
+    - added missing TOPT/FMPT/INTL-Kludges in Netmail-Reply
 
-        - fixed finding non-existent files when a longer name matches
-          (e.g.: requesting FECV returns "ok", even though only FECV156.RAR
-           exists).
+    - fixed finding non-existent files when a longer name matches
+      (e.g.: requesting FECV returns "ok", even though only FECV156.RAR
+      exists).
 
 
