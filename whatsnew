@@ -6,6 +6,10 @@ New in 0.11.0(rjc) (01.10.2009):
 
         - Add the English translation of vireq.dok by Viktor Kafke as the
           file README
+        - Correct gcc warning:  return type of 'main' is not 'int'.
+          Received the following warning when attempting to compile:
+          vireq.c:687: warning: return type of 'main' is not 'int'
+          Changed from the void main() format to int main() format.
 
 New in 0.10.5(vk) (01.10.2008):
 ------------------------------
