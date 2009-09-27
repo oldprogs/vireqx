@@ -684,7 +684,7 @@ void findfile(char *name)
 }
 
 
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     unsigned int nhandles;
     FILE *config;
