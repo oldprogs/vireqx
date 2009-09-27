@@ -1,6 +1,12 @@
 Beta History
 ============
 
+New in 0.11.0(rjc) (01.10.2009):
+------------------------------
+
+        - Add the English translation of vireq.dok by Viktor Kafke as the
+          file README
+
 New in 0.10.5(vk) (01.10.2008):
 ------------------------------
 
@@ -9,7 +15,6 @@ New in 0.10.5(vk) (01.10.2008):
 
 New in 0.10.2(vk) (20.03.2004):
 ------------------------------
-
 
         - Added routines to check os-environment while compiling - to make
           (vk)-changes only affect to unix/linux-binaries. Behavior of
