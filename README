@@ -1,5 +1,5 @@
 
-                VIREQ/x V0.11
+                VIREQ/x V0.12
                 (c) 1998-2001 by Volker Imre
                 Fidonet 2:246/2098
                 Email   Volker@imre.dyndns.org
@@ -38,11 +38,11 @@ Short description:
 How to install:
 --------------
 
-	1. Create a new directory /usr/bin/vireq/
+	1. Create a new directory /opt/vireqx/, and then /opt/vireqx/var.
 	2. Extract the whole VIREQ/x archive to this new directory.
 	3. Make sure that the user which runs binkd and vireq do have write
 	   access to this directory and the files in it. E.g. via:
-	        chown -R news.news /usr/bin/vireq
+	        chown -R news.news /opt/vireqx
 	4. Change the sample vireq.cfg and vireq.pwd to fit your system
 	   requirements. The vireq.pwd file is not mandatory (see whatsnew).
 	5. Run vimkidx
@@ -62,7 +62,7 @@ The executables:
 		     mailer for handling file requests. Change your binkd.cfg
 		     as follows
 
-			exec "/usr/bin/vireq/vireq *S" *.req
+			exec "/opt/vireqx/vireq *S" *.req
 
 The main configuration file vireq.cfg:
 -------------------------------------

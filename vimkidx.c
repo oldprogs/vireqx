@@ -253,7 +253,7 @@ int main(int argc, char *argv[])
             force=1;
     }
 
-    _outtext("VIMKIDX/Linux V0.07.2(vk)");
+    _outtext("VIMKIDX/Linux V0.12");
     _outtext("Creates all needed indexfiles for VIREQ/Linux");
     _outtext("Use -force to recreate the cdrom-indices");
 
@@ -270,7 +270,7 @@ int main(int argc, char *argv[])
 */
 
 
-    sprintf(path,"/usr/bin/vireq/");
+    sprintf(path,"/opt/vireqx/var/");
 
     sprintf(pfadname,"%svipath.idx",path);
     sprintf(pfadcname,"%svipath.idc",path);

@@ -1,7 +1,17 @@
 VIREQ/x History
 ===============
 
-New in 0.11 (26.09.2009):
+New in 0.12(rjc) (20.01.2013):
+------------------------------
+
+    - Move documentation and example files to a doc/ directory.
+    - Add initial versions of man pages to the doc/ directory.
+    - Change hardcoded index files directory path to /opt/vireqx/var and
+      base path referenced in documentation to /opt/vireqx.
+    - Add a basic Makefile for VIREQ/x. (Initial version thanks to Stas Degteff
+      <stas_degteff@users.sourceforge.net>.)
+
+New in 0.11(rjc) (26.09.2009):
 -------------------------
 
     - Add the English translation of vireq.dok by Viktor Kafke as the

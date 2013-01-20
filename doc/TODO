@@ -1,0 +1,35 @@
+VIREQ/x ToDo
+
+    General
+    -------
+
+- Fix or otherwise resolve compile time warnings.
+
+- Translate comments?
+
+- The man pages need to be updated.
+
+- Create a common 'version.h' file.
+
+- Add an example aliases.lst file.
+
+- Explicitly note authors of changes in whatsnew file instead of just using initials
+  or assuming which author it is.
+
+- Detail copyright & license information better in COPYING.
+
+- The INSTALLATION instructions in the README file appear to assume that the programs
+  have already been compiled.
+
+
+    - vimkidx.c
+- Error and other messages need to be translated from the german? Or add
+  gettxt functionality for multiple languages
+
+- Does the indexing option related to 'files.bbs' actually work?  The comparison
+  in the code appears to be to "files.bbx" files...
+
+
+    - vireq.c
+- Error and other messages need to be translated from the german? Or add
+  gettxt functionality for multiple languages.

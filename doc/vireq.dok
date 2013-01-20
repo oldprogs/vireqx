@@ -33,7 +33,7 @@ Kurzbeschreibung:
 Installation:
 -------------
 
-	1. Den kompletten Inhalt des Archivs nach /usr/bin/vireq/ entpacken.
+	1. Den kompletten Inhalt des Archivs nach /opt/vireqx/ entpacken.
 	2. Vireq.cfg und vireq.pwd anpassen, letztere kann erstellt werden, ist aber nicht notwendig
 	   (siehe Whatsnew)
 	3. vimkidx starten
@@ -51,7 +51,7 @@ Die Programme:
 
         VIREQ.EXE -> Der Reqproz. Einzubinden in binkd.cfg als
 
-			exec "/usr/bin/vireq/vireq *S" *.req
+			exec "/opt/vireqx/vireq *S" *.req
  
 
 Das Config-File VIREQ.CFG:
