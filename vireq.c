@@ -711,7 +711,7 @@ int main(int argc, char *argv[])
     }
 
 /*    _splitpath(argv[0],drive,path,file,ext);*/
-    sprintf(path,"/usr/bin/vireq/");
+    sprintf(path,"/opt/vireqx/var/");
     sprintf(tempname,"%svireq%u.tmp",path,task);
     unlink(tempname);
     for (i=0;i<510 ; i++)

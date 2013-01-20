@@ -270,7 +270,7 @@ int main(int argc, char *argv[])
 */
 
 
-    sprintf(path,"/usr/bin/vireq/");
+    sprintf(path,"/opt/vireqx/var/");
 
     sprintf(pfadname,"%svipath.idx",path);
     sprintf(pfadcname,"%svipath.idc",path);
