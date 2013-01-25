@@ -212,7 +212,7 @@ void make_dirlist(char *dir)
 		    tempzaehl--; 
                     sprintf(subdir[ii],"%s/%s",subdir[tempzaehl],direntp->d_name);
 		    ii++;
-		    printf("%u : %u --> %s\r",ii,jj,direntp->d_name);
+		    printf("%lu : %lu --> %s\r",ii,jj,direntp->d_name);
 		}
                 findnext();
             }
