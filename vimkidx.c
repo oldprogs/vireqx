@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <dirent.h>
 #include "vireq.h"
+#include "version.h"
 DIR *dirp;
 struct dirent *direntp;
 
@@ -253,7 +254,7 @@ int main(int argc, char *argv[])
             force=1;
     }
 
-    _outtext("VIMKIDX/Linux V0.12");
+    printf("VIMKIDX/Linux V%s\n",VERSION);
     _outtext("Creates all needed indexfiles for VIREQ/Linux");
     _outtext("Use -force to recreate the cdrom-indices");
 

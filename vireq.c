@@ -14,6 +14,7 @@
 #define MAX_FILENAMELEN _MAX_DRIVE + _MAX_DIR + _MAX_FNAME + _MAX_EXT
 #include <dirent.h>
 #include "vireq.h"
+#include "version.h"
 
 DIR *dirp;
 struct dirent *direntp;
@@ -48,7 +49,6 @@ struct
 
 FILE *pfade;
 char pfadfile[MAX_FILENAMELEN];
-#define VERSION "0.12"
 FILE *pwfile;
 char pwfilename[MAX_FILENAMELEN];
 

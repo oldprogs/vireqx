@@ -1,6 +1,6 @@
 # Makefile for VIREQ/x
 
-CFLAGS=-Wall
+CFLAGS+=-Wall
 
 vireq vimkidx: vimkidx.c vireq.c
 	$(CC) $(CFLAGS) -o vireq vireq.c
