@@ -140,7 +140,7 @@ int find_filesbbs(char *pfad)
 	findclose();
 	return(1);
 }
-void oeffne_idx(char c)
+void oeffne_idx(unsigned char c)
 {
 
     sprintf(idx[c].name,"%svifile%c.idx",path,c);
@@ -154,7 +154,7 @@ void oeffne_idx(char c)
         perror("\nFehler ");
     }
 }
-void oeffne_idx_cdrom(char c)
+void oeffne_idx_cdrom(unsigned char c)
 {
 
     sprintf(idx_c[c].name,"%s%svifile%c.idc",drive,path,c);
@@ -238,7 +238,7 @@ int main(int argc, char *argv[])
 {
     char *q;
     char mmcd=0, force=0;
-    char param=0;
+    unsigned char param=0;
 	char pfad[512];
     unsigned int nhandles;
     long zaehler=0;

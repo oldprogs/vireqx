@@ -1,6 +1,12 @@
 VIREQ/x History
 ===============
 
+New in 0.15(rjc) (25.01.2013):
+------------------------------
+
+    - Fix warnings in vimkidx.c: array subscript has type 'char'.
+    - Fix warnings in vireq.c: array subscript has type 'char'.
+
 New in 0.14(rjc) (25.01.2013):
 ------------------------------
 

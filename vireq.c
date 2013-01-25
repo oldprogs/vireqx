@@ -54,7 +54,7 @@ char pwfilename[MAX_FILENAMELEN];
 
 unsigned int i;
 unsigned int j;
-char c,pwok;
+unsigned char c,pwok;
 time_t aktuelles;
 char statname[MAX_FILENAMELEN];
 char mmnewest, mmexecute;
