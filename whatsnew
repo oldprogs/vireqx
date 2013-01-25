@@ -1,10 +1,13 @@
 VIREQ/x History
 ===============
 
-New in 0.14(rjc) (??.01.2013):
+New in 0.14(rjc) (25.01.2013):
 ------------------------------
 
-    - Start development for version v0.14
+    In function ‘make_dirlist’ of vimkidx.c:
+    - Correct compile time warning due to missing format string at line 186.
+    - Correct format strings to '%lu' in line 215 in order to correct compile
+      time warning. 
 
 New in 0.13(rjc) (25.01.2013):
 ------------------------------
