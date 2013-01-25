@@ -254,7 +254,7 @@ int main(int argc, char *argv[])
             force=1;
     }
 
-    _outtext("VIMKIDX/Linux V0.13");
+    _outtext("VIMKIDX/Linux VERSION");
     _outtext("Creates all needed indexfiles for VIREQ/Linux");
     _outtext("Use -force to recreate the cdrom-indices");
 
