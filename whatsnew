@@ -1,10 +1,12 @@
 VIREQ/x History
 ===============
 
-New in 0.13(rjc) (??.01.2013):
+New in 0.13(rjc) (25.01.2013):
 ------------------------------
 
-    - Start development for version 0.13.
+    - Add version.h to define VERSION for both vimkidx.c and vireq.c.
+    - Use VERSION variable in vimkidx.c information printing.
+    - Append to CFLAGS in the Makefile instead of just assigning.
 
 New in 0.12(rjc) (20.01.2013):
 ------------------------------
