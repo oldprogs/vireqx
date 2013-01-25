@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <dirent.h>
 #include "vireq.h"
+#include "version.h"
 DIR *dirp;
 struct dirent *direntp;
 
