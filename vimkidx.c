@@ -183,7 +183,7 @@ void make_dirlist(char *dir)
        *p=0x00;
 
 
-    sprintf(dirs_name,"%sdirlist.dat",drive,path);
+    sprintf(dirs_name,"%s%sdirlist.dat",drive,path);
     dirs=fopen(dirs_name,"wt");
 
     sprintf(subdir[0],"%s",dir);
