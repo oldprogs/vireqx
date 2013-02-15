@@ -1,0 +1,54 @@
+How to build VIREQ/X
+====================
+
+CMake is now the standard build system for VIREQ/X; see the 'Legacy Makefile'
+section for information about an alternate way of doing the build and install.
+Note that with the current version, installation of all files except for the
+man pages is to /opt/vireqx.
+
+
+(1) Create a build directory for CMake to work in.
+
+    mkdir <vireqx build directory>
+    cd <vireqx build directory>
+
+
+(2) Run CMake to configure and create the build system files.
+
+    cmake [OPTIONS] <vireqx source directory>
+    -- OR --
+    ccmake <vireqx source directory>
+    -- OR --
+    cmake-gui <vireqx source directory>
+
+
+(3) On systems where Makefiles are used, then run:
+    make
+    sudo make install
+
+
+For more details on the options available as well as other information, see the
+CMake documentation.
+
+
+Once it is installed, see /opt/vireqx/README (oder für die Version in Deutsch:
+/opt/vireqx/vireq.dok) for more information about the configuration and use
+of VIREQ/X.
+
+
+Legacy Makefile
+===============
+Note that if you do not have CMake available to you or do not wish to use it,
+see below for a copy of an example Makefile for VIREQ/X; you can extract it to
+the VIREQ/X source directory and use that instead.
+
+# Legacey Makefile for VIREQ/x
+
+CFLAGS+=-Wall
+
+vireq vimkidx: vimkidx.c vireq.c
+	$(CC) $(CFLAGS) -o vireq vireq.c
+	$(CC) $(CFLAGS) -o vimkidx vimkidx.c
+
+clean:
+	rm -f vireq vimkidx
