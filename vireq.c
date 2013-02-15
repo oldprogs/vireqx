@@ -993,7 +993,7 @@ int main(int argc, char *argv[])
                 j=0;
                 while(j < max)
                 {
-			printf("%s (%lu) -> %s (%lu)\n",eingabe,strlen(eingabe),found[j].name,strlen(found[j].name));
+			printf("%s (%zu) -> %s (%zu)\n",eingabe,strlen(eingabe),found[j].name,strlen(found[j].name));
                     if (!strncmp(eingabe,found[j].name,strlen(found[j].name)) && strlen(eingabe)==strlen(found[j].name))
                     {
                         found[j].area=-2;
