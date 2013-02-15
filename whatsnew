@@ -1,6 +1,13 @@
 VIREQ/x History
 ===============
 
+New in 0.16(rjc) (14.02.2013):
+------------------------------
+
+    - Add initial version of CMakeLists.txt files for VIREQ/x project.
+    - Add initial version of an INSTALL file to the VIREQ/X project. Also
+      include a copy of the original Makefile in a section of its own.
+
 New in 0.15(rjc) (25.01.2013):
 ------------------------------
 
