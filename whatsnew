@@ -1,6 +1,12 @@
 VIREQ/x History
 ===============
 
+New in 0.17(rjc) (15.02.2013):
+------------------------------
+
+    - vimkidx.c: Correct the misspelled 'files.bbx' to 'files.bbs'
+    - vireq.c: Fix compile warning by using ‘%zu’ instead of ‘%lu’ in line 996.
+
 New in 0.16(rjc) (14.02.2013):
 ------------------------------
 
